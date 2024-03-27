@@ -4,6 +4,10 @@ import { useLoaderData } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { getStoredJobApplication } from '../Utility/localStorage';
+import { CiLocationOn } from "react-icons/ci";
+import { LuUsers2 } from "react-icons/lu";
+import { MdInsertPageBreak } from "react-icons/md";
+
 
 const ListedBook = () => {
     const books = useLoaderData();
@@ -11,15 +15,20 @@ const ListedBook = () => {
     const [readBooks, setReadBooks] = useState([]);
     const [displayBooks, setDisplayBooks] = useState([]);
 
+    // Wishlist Books
+
+    const [wishlistBooks , setWishlistBooks] = useState([]);
+    const [displayWishlistBooks, setDisplayWishlistBooks] = useState([]);
+
     const handleReadBooksFilter = filter => {
-        if(filter === 'all'){
+        if (filter === 'all') {
             setDisplayBooks(readBooks);
         }
-        else if(filter === 'popular'){
+        else if (filter === 'popular') {
             const popularBooks = readBooks.filter(book => book.popurarity === "yes");
             setDisplayBooks(popularBooks);
         }
-        else if(filter === 'unpopular'){
+        else if (filter === 'unpopular') {
             const unpopularBooks = readBooks.filter(book => book.popurarity === "no");
             setDisplayBooks(unpopularBooks);
         }
@@ -41,6 +50,23 @@ const ListedBook = () => {
         }
     }, [books])
 
+    //Wishlist Books Use Effect
+    useEffect(() => {
+        const storedBookIds = getStoredJobApplication();
+        if (books.length > 0) {
+            const wishlistBooks = [];
+            for (const id of storedBookIds) {
+                const book = books.find(book => book.bookId === id);
+                if (book) {
+                    wishlistBooks.push(book);
+                }
+            }
+            setWishlistBooks(wishlistBooks);
+            setDisplayWishlistBooks(wishlistBooks);
+        }
+    }, [books])
+    console.log(wishlistBooks);
+
     const [tabIndex, setTabIndex] = useState(0);
     return (
         <>
@@ -51,14 +77,16 @@ const ListedBook = () => {
 
             <div>
                 <div className="dropdown ">
-                    <div tabIndex={0} role="button" className="btn m-5 bg-green-500 text-lg text-white">Sort By <span> <IoIosArrowDown />  </span> </div>
+                    <div className='flex left-0'>
+                        <div tabIndex={0} role="button" className="btn m-5  bg-green-500 text-lg text-white">Sort By <span> <IoIosArrowDown />  </span> </div>
+                    </div>
                     <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-300 rounded-box w-52">
-                        <li onClick={() => {handleReadBooksFilter('all')}} ><a>All</a></li>
-                        <li onClick={() => {handleReadBooksFilter('popular')}}><a>Popular</a></li>
-                        <li onClick={() => {handleReadBooksFilter('unpopular')}}><a>Non-Popular</a></li>
+                        <li onClick={() => { handleReadBooksFilter('all') }} ><a>All</a></li>
+                        <li onClick={() => { handleReadBooksFilter('popular') }}><a>Popular</a></li>
+                        <li onClick={() => { handleReadBooksFilter('unpopular') }}><a>Non-Popular</a></li>
                     </ul>
                 </div>
-            </div>
+            </div> 
 
             <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
                 <TabList>
@@ -69,14 +97,28 @@ const ListedBook = () => {
 
                     <h1>Read Book Length : {readBooks.length} </h1>
                     {
-                        displayBooks.map(book => 
+                        displayBooks.map(book =>
                             <div key={book.bookId} className="card card-side m-5 bg-base-300 shadow-xl">
                                 <figure><img className='w-96' src={book.image} alt="Movie" /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title">{book.bookName}</h2>
-                                    <p>Click the button to watch on Jetflix app.</p>
-                                    <div className="card-actions justify-end">
-                                        <button className="btn btn-primary">Watch</button>
+                                    <p> By : {book.author}</p>
+                                    <div className='flex items-center gap-6'>
+                                        <h2><span className="font-bold text-lg">Tags:</span> {
+                                            book.tags.map((tag) => <span className="btn text-green-600" key={tag}> # {tag} </span>)
+                                        } </h2>
+                                        <h2 className='flex items-center gap-2'>
+                                            <CiLocationOn /> Year Of Publishing : {book.yearOfPublishing}
+                                        </h2>
+                                    </div>
+                                    <div className='flex gap-5'>
+                                        <h2 className='flex items-center text-lg gap-2'><LuUsers2 /> Publisher : {book.publisher} </h2>
+                                        <h2 className='flex items-center text-lg gap-2'> <MdInsertPageBreak /> Page: {book.totalPages}</h2>
+                                    </div>
+                                    <div className="card-actions">
+                                        <button className="btn rounded-lg text-blue-600 ">Category: {book.category} </button>
+                                        <button className="btn rounded-lg text-green-400">Rating : {book.rating}</button>
+                                        <button className="btn rounded-lg btn-success">View Details</button>
                                     </div>
                                 </div>
                             </div>
@@ -85,36 +127,37 @@ const ListedBook = () => {
 
                 </TabPanel>
                 <TabPanel>
-                    <div className="card card-side m-5 bg-base-300 shadow-xl">
-                        <figure><img src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" alt="Movie" /></figure>
-                        <div className="card-body">
-                            <h2 className="card-title">New movie is released!</h2>
-                            <p>Click the button to watch on Jetflix app.</p>
-                            <div className="card-actions justify-end">
-                                <button className="btn btn-primary">Watch</button>
+                    <h1>Wishlist Book Length : {wishlistBooks.length} </h1>
+
+                    {
+                        displayWishlistBooks.map(book =>
+                            <div key={book.bookId} className="card card-side m-5 bg-base-300 shadow-xl">
+                                <figure><img className='w-96' src={book.image} alt="Movie" /></figure>
+                                <div className="card-body">
+                                    <h2 className="card-title">{book.bookName}</h2>
+                                    <p> By : {book.author}</p>
+                                    <div className='flex items-center gap-6'>
+                                        <h2><span className="font-bold text-lg">Tags:</span> {
+                                            book.tags.map((tag) => <span className="btn text-green-600" key={tag}> # {tag} </span>)
+                                        } </h2>
+                                        <h2 className='flex items-center gap-2'>
+                                            <CiLocationOn /> Year Of Publishing : {book.yearOfPublishing}
+                                        </h2>
+                                    </div>
+                                    <div className='flex gap-5'>
+                                        <h2 className='flex items-center text-lg gap-2'><LuUsers2 /> Publisher : {book.publisher} </h2>
+                                        <h2 className='flex items-center text-lg gap-2'> <MdInsertPageBreak /> Page: {book.totalPages}</h2>
+                                    </div>
+                                    <div className="card-actions">
+                                        <button className="btn rounded-lg text-blue-600 ">Category: {book.category} </button>
+                                        <button className="btn rounded-lg text-green-400">Rating : {book.rating}</button>
+                                        <button className="btn rounded-lg btn-success">View Details</button>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div className="card card-side m-5 bg-base-300 shadow-xl">
-                        <figure><img src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" alt="Movie" /></figure>
-                        <div className="card-body">
-                            <h2 className="card-title">New movie is released!</h2>
-                            <p>Click the button to watch on Jetflix app.</p>
-                            <div className="card-actions justify-end">
-                                <button className="btn btn-primary">Watch</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="card card-side m-5 bg-base-300 shadow-xl">
-                        <figure><img src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" alt="Movie" /></figure>
-                        <div className="card-body">
-                            <h2 className="card-title">New movie is released!</h2>
-                            <p>Click the button to watch on Jetflix app.</p>
-                            <div className="card-actions justify-end">
-                                <button className="btn btn-primary">Watch</button>
-                            </div>
-                        </div>
-                    </div>
+                        )
+                    }
+
                 </TabPanel>
             </Tabs>
         </>

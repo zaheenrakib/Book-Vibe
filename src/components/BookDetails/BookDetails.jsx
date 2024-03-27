@@ -17,6 +17,7 @@ const BookDetails = () => {
         toast('You  add Read BookList')
     }
     const handleWishlistBook = () =>{
+        saveJobApplication(idInt);
         toast('You  add Wishlist BookList')
     }
 
