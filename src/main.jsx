@@ -10,8 +10,9 @@ import ErrorPage from './components/ErrorPage/ErrorPage';
 import Home from './components/Home/Home';
 import ListedBook from './components/ListedBooks/ListedBook';
 import PageToRead from './components/PageToRead/PageToRead';
+import BookDetails from './components/BookDetails/BookDetails';
 
-const router = createBrowserRouter([
+const router = createBrowserRouter([ 
   {
     path: "/",
     element: <Root></Root>,
@@ -23,18 +24,28 @@ const router = createBrowserRouter([
       },
       {
         path: '/listedbooks',
-        element: <ListedBook></ListedBook>
+        element: <ListedBook></ListedBook>,
+        loader: () => fetch('book.json')
       },
       {
         path: '/pagetoread',
         element: <PageToRead></PageToRead>
+      },
+      {
+        path: '/statistics',
+        element : <BookDetails></BookDetails>
+      },
+      {
+        path: '/book/:bookId',
+        element: <BookDetails></BookDetails>,
+        loader:() => fetch('book.json')
       }
     ]
   },
-]);
+] );
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>,
+  </React.StrictMode>
 )
