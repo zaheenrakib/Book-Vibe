@@ -75,7 +75,7 @@ const ListedBook = () => {
                 <h1 className="p-8 text-center text-2xl font-bold">Book Vibe</h1>
             </div>
 
-            <div>
+            <div className='flex justify-center'>
                 <div className="dropdown ">
                     <div className='flex left-0'>
                         <div tabIndex={0} role="button" className="btn m-5  bg-green-500 text-lg text-white">Sort By <span> <IoIosArrowDown />  </span> </div>

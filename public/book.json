@@ -1,130 +1,128 @@
 [
-    {
+  {
       "bookId": 1,
       "bookName": "The Great Gatsby",
       "author": "F. Scott Fitzgerald",
       "image": "https://i.ibb.co/dPCqMzw/pexels-ylanite-koppens-1906437.jpg",
-      "review": "A captivating tale of love, greed, and tragedy set in the roaring twenties.",
+      "review": "The Great Gatsby is a captivating tale of love, greed, and tragedy set in the roaring twenties. Fitzgerald's prose is as enchanting as ever, painting a vivid picture of the opulent lifestyles and moral decay of the characters. The story follows the mysterious Jay Gatsby and his obsession with the beautiful Daisy Buchanan, exploring themes of the American Dream, wealth, and the corrupting influence of money. With its intricate plot twists and richly drawn characters, The Great Gatsby remains a timeless classic that continues to resonate with readers.",
       "totalPages": 180,
       "rating": 4.5,
       "category": "Fiction",
       "tags": ["Classics", "Romance", "Drama"],
       "publisher": "Scribner",
       "yearOfPublishing": 1925,
-      "popurarity": "yes"
-    },
-    {
+      "popularity": "yes"
+  },
+  {
       "bookId": 2,
       "bookName": "To Kill a Mockingbird",
       "author": "Harper Lee",
-      "image": "https://i.ibb.co/dPCqMzw/pexels-ylanite-koppens-1906437.jpg",
-      "review": "A timeless exploration of racial injustice and moral growth in the American South.",
+      "image": "https://i.ibb.co/RCPjwtz/pexels-ugurlu-photographer-336407.jpg",
+      "review": "To Kill a Mockingbird is a timeless exploration of racial injustice and moral growth in the American South. Harper Lee's masterful storytelling and poignant portrayal of the Finch family and their community shed light on the complexities of human nature and the consequences of prejudice. Through the eyes of young Scout Finch, readers witness the injustice faced by Tom Robinson, a black man wrongly accused of rape, and the moral courage of her father, Atticus Finch, as he defends him in court. With its powerful themes and unforgettable characters, To Kill a Mockingbird remains a classic that continues to resonate with readers of all ages.",
       "totalPages": 324,
       "rating": 4.8,
       "category": "Fiction",
       "tags": ["Classics", "Legal Drama", "Social Issues"],
       "publisher": "J. B. Lippincott & Co.",
       "yearOfPublishing": 1960,
-      "popurarity": "no"
-    },
-    {
+      "popularity": "no"
+  },
+  {
       "bookId": 3,
       "bookName": "1984",
       "author": "George Orwell",
-      "image": "https://i.ibb.co/dPCqMzw/pexels-ylanite-koppens-1906437.jpg",
-      "review": "A dystopian masterpiece that warns of the dangers of totalitarianism and thought control.",
+      "image": "https://i.ibb.co/3MRkJLD/pexels-element-digital-1470170.jpg",
+      "review": "1984 is a dystopian masterpiece that warns of the dangers of totalitarianism and thought control. George Orwell's chilling depiction of a totalitarian regime that suppresses individuality and truth remains as relevant today as when it was first published. The story follows Winston Smith, a low-ranking member of the ruling Party, as he rebels against the oppressive regime and seeks freedom of thought and expression. Through its bleak portrayal of a surveillance state and its exploration of power, propaganda, and resistance, 1984 continues to captivate and disturb readers with its prophetic vision of the future.",
       "totalPages": 328,
       "rating": 4.7,
       "category": "Fiction",
-      "tags": ["Dystopian", "Political Fiction", "Social Commentary"],
+      "tags": ["Dystopian", "Political Fiction"],
       "publisher": "Secker & Warburg",
       "yearOfPublishing": 1949,
-      "popurarity": "yes"
-    },
-    {
+      "popularity": "yes"
+  },
+  {
       "bookId": 4,
       "bookName": "Pride and Prejudice",
       "author": "Jane Austen",
-      "image": "https://i.ibb.co/dPCqMzw/pexels-ylanite-koppens-1906437.jpg",
-      "review": "A charming tale of love, manners, and society in early 19th-century England.",
+      "image": "https://i.ibb.co/MPtpTN1/pexels-suzy-hazelwood-1286115.jpg",
+      "review": "Pride and Prejudice is a charming tale of love, manners, and society in early 19th-century England. Jane Austen's witty social commentary and endearing characters make this novel a delight to read. The story follows the independent-minded Elizabeth Bennet as she navigates the intricacies of romance and class in a society governed by strict social norms. Along the way, she encounters the enigmatic Mr. Darcy, whose pride and prejudice initially clash with her own. With its timeless themes of love, family, and personal growth, Pride and Prejudice remains one of the most beloved novels in English literature.",
       "totalPages": 432,
       "rating": 4.6,
       "category": "Fiction",
       "tags": ["Classics", "Romance", "Satire"],
       "publisher": "T. Egerton, Whitehall",
       "yearOfPublishing": 1813,
-      "popurarity": "no"
-    },
-    {
+      "popularity": "no"
+  },
+  {
       "bookId": 5,
       "bookName": "The Catcher in the Rye",
       "author": "J.D. Salinger",
-      "image": "https://i.ibb.co/dPCqMzw/pexels-ylanite-koppens-1906437.jpg",
-      "review": "An iconic coming-of-age story that explores themes of alienation, identity, and adolescence.",
+      "image": "https://i.ibb.co/rxmNCQ1/pexels-leah-newhouse-1666320.jpg",
+      "review": "The Catcher in the Rye is an iconic coming-of-age story that explores themes of alienation, identity, and adolescence. J.D. Salinger's protagonist, Holden Caulfield, has become an emblematic figure of teenage angst and rebellion. As he navigates the complexities of adulthood, Holden grapples with feelings of isolation and disillusionment, longing for authenticity in a world he sees as phony. With its raw emotional honesty and timeless relevance, The Catcher in the Rye continues to resonate with readers of all generations.",
       "totalPages": 224,
       "rating": 4.3,
       "category": "Fiction",
-      "tags": ["Coming-of-Age", "Literary Fiction", "American Literature"],
+      "tags": ["Coming-of-Age", "Literary Fiction"],
       "publisher": "Little, Brown and Company",
       "yearOfPublishing": 1951,
-      "popurarity": "yes"
-    },
-    {
+      "popularity": "yes"
+  },
+  {
       "bookId": 6,
       "bookName": "The Hobbit",
       "author": "J.R.R. Tolkien",
-      "image": "https://i.ibb.co/dPCqMzw/pexels-ylanite-koppens-1906437.jpg",
-      "review": "An enchanting adventure set in Middle-earth, filled with dwarves, wizards, and a courageous hobbit.",
+      "image": "https://i.ibb.co/0XcSpRq/pexels-bruno-cervera-1431324.jpg",
+      "review": "The Hobbit is an enchanting adventure set in Middle-earth, filled with dwarves, wizards, and a courageous hobbit. J.R.R. Tolkien's imaginative world-building and rich storytelling transport readers to a realm of magic and myth. The story follows Bilbo Baggins, an unassuming hobbit who embarks on a perilous quest to reclaim the lost kingdom of Erebor from the fearsome dragon Smaug. Along the way, he encounters trolls, goblins, and other fantastical creatures, forming unlikely friendships and discovering his own bravery. With its timeless themes of heroism, friendship, and the power of storytelling, The Hobbit continues to captivate readers of all ages.",
       "totalPages": 310,
       "rating": 4.7,
       "category": "Fantasy",
-      "tags": ["Adventure", "Epic Fantasy", "Children's Literature"],
+      "tags": ["Adventure", "Epic Fantasy"],
       "publisher": "George Allen & Unwin",
       "yearOfPublishing": 1937,
-      "popurarity": "yes"
-    },
-    {
+      "popularity": "yes"
+  },
+  {
       "bookId": 7,
       "bookName": "The Lord of the Rings",
       "author": "J.R.R. Tolkien",
-      "image": "https://i.ibb.co/dPCqMzw/pexels-ylanite-koppens-1906437.jpg",
-      "review": "An epic tale of friendship, heroism, and the struggle against evil, set in the richly imagined world of Middle-earth.",
+      "image": "https://i.ibb.co/s5Lfkyt/pexels-lina-kivaka-1741231.jpg",
+      "review": "The Lord of the Rings is an epic tale of friendship, heroism, and the struggle against evil, set in the richly imagined world of Middle-earth. J.R.R. Tolkien's magnum opus unfolds across three volumes, chronicling the quest to destroy the One Ring and defeat the dark lord Sauron. From the humble beginnings of Frodo Baggins in the Shire to the climactic battles of the War of the Ring, the story is filled with unforgettable characters, breathtaking landscapes, and epic battles. With its timeless themes of sacrifice, redemption, and the triumph of good over evil, The Lord of the Rings continues to inspire readers and filmmakers around the world.",
       "totalPages": 1178,
       "rating": 4.9,
       "category": "Fantasy",
       "tags": ["Epic Fantasy", "Adventure", "High Fantasy"],
       "publisher": "George Allen & Unwin",
       "yearOfPublishing": 1954,
-      "popurarity": "yes"
-    },
-    {
+      "popularity": "yes"
+  },
+  {
       "bookId": 8,
       "bookName": "The Philosopher's Stone",
       "author": "J.K. Rowling",
-      "image": "https://i.ibb.co/dPCqMzw/pexels-ylanite-koppens-1906437.jpg",
-      "review": "A spellbinding start to the beloved Harry Potter series, filled with magic, friendship, and adventure.",
+      "image": "https://i.ibb.co/MPtpTN1/pexels-suzy-hazelwood-1286115.jpg",
+      "review": "The Philosopher's Stone is a spellbinding start to the beloved Harry Potter series, filled with magic, friendship, and adventure. J.K. Rowling's enchanting tale follows the young wizard Harry Potter as he discovers his true identity and begins his journey at Hogwarts School of Witchcraft and Wizardry. Alongside his loyal friends Ron and Hermione, Harry faces challenges, uncovers secrets, and confronts the dark wizard Voldemort. With its richly imagined world and lovable characters, The Philosopher's Stone captivates readers of all ages, sparking a global phenomenon that has enchanted millions.",
       "totalPages": 332,
       "rating": 4.8,
       "category": "Fantasy",
-      "tags": ["Wizardry", "Magic", "Children's Literature"],
+      "tags": ["Wizardry", "Magic"],
       "publisher": "Bloomsbury Publishing",
       "yearOfPublishing": 1997,
-      "popurarity": "yes"
-    },
-    {
+      "popularity": "yes"
+  },
+  {
       "bookId": 9,
       "bookName": "The Da Vinci Code",
       "author": "Dan Brown",
-      "image": "https://i.ibb.co/dPCqMzw/pexels-ylanite-koppens-1906437.jpg",
-      "review": "A gripping mystery thriller that combines art, history, and secret societies in a pulse-pounding quest.",
+      "image": "https://i.ibb.co/RCPjwtz/pexels-ugurlu-photographer-336407.jpg",
+      "review": "The Da Vinci Code is a gripping mystery thriller that combines art, history, and secret societies in a pulse-pounding quest. Dan Brown's fast-paced narrative and intricate plot twists keep readers on the edge of their seats as they follow symbologist Robert Langdon on a quest to unravel the secrets of the Holy Grail. From the streets of Paris to the corridors of the Vatican, Langdon and cryptologist Sophie Neveu race against time to solve a series of cryptic clues and uncover a shocking truth. With its blend of historical fact and fiction, The Da Vinci Code is a thrilling ride that will leave readers guessing until the very end.",
       "totalPages": 454,
       "rating": 4.5,
       "category": "Mystery",
-      "tags": ["Thriller", "Conspiracy", "Art"],
+      "tags": ["Thriller", "Conspiracy"],
       "publisher": "Doubleday",
       "yearOfPublishing": 2003,
-      "popurarity": "no"
-      
-    }
-  ]
-  
+      "popularity": "no"
+  }
+]
