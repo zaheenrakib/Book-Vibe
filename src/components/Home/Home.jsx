@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import MyImaged from '../images/cover.jpg'
 import Book from '../Book/Book';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
 
@@ -21,7 +22,7 @@ const Home = () => {
                     <img src={MyImaged} className="max-w-sm rounded-lg shadow-2xl" />
                     <div>
                         <h1 className="text-6xl w-3/4 font-bold">Books to freshen up your bookshelf</h1>
-                        <button className="btn mt-12 text-white text-lg btn-success">View The List</button>
+                        <Link to='/listedbooks'><button className="btn mt-12 text-white text-lg btn-success">View The List</button></Link>
                     </div>
                 </div>
             </div>
