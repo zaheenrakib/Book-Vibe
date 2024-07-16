@@ -1,19 +1,19 @@
-const getStoredJobApplication = () => {
-    const storedJobApplication = localStorage.getItem('job-application');
-    if (storedJobApplication) {
-        return JSON.parse(storedJobApplication);
+const getSavedBooks = (booktype) => {
+    const storedBook = localStorage.getItem(booktype);
+    if (storedBook) {
+        return JSON.parse(storedBook);
     }
     return [];
 }
 
 
-const saveJobApplication = id =>{
-    const storedJobApplications = getStoredJobApplication();
-    const exits = storedJobApplications.find(jobId => jobId === id);
+const saveBookList = (bookType,id) =>{
+    const storedBooks = getSavedBooks(bookType);
+    const exits = storedBooks.find(bookID => bookID === id);
     if (!exits) {
-        storedJobApplications.push(id);
-        localStorage.setItem('job-application', JSON.stringify(storedJobApplications));
+        storedBooks.push(id);
+        localStorage.setItem(bookType, JSON.stringify(storedBooks));
     }
 }
 
-export { getStoredJobApplication, saveJobApplication }
+export { getSavedBooks, saveBookList }

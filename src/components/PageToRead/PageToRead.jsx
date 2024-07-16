@@ -60,10 +60,10 @@ const PageToRead = () => {
       ];
       
     return (
-        <div>
+        <div className='flex items-center justify-center'>
             <BarChart
-                width={500}
-                height={300}
+                width={1000}
+                height={500}
                 data={data}
                 margin={{
                     top: 20,

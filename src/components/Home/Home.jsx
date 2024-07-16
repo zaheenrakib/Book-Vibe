@@ -1,19 +1,18 @@
 import { useEffect, useState } from 'react';
 import MyImaged from '../images/cover.jpg'
 import Book from '../Book/Book';
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData} from 'react-router-dom';
 
 const Home = () => {
+    const books = useLoaderData();
+    
+    // const [books, setBooks] = useState([]);
 
-    const [books , setBooks] = useState([]);
-
-    useEffect(() =>{
-        fetch('book.json')
-        .then(response => response.json())
-        .then(data => setBooks(data))
-    },[])
-
-    console.log(books);
+    // useEffect(() =>{
+    //     fetch('book.json')
+    //     .then(response => response.json())
+    //     .then(data => setBooks(data))
+    // },[])
 
     return (
         <>
@@ -33,11 +32,9 @@ const Home = () => {
                 </div>
                 <div>
                     <div className="grid lg:grid-cols-3 grid-cols-1 mb-12">
-                        
                         {
                             books.map(book => <Book key={book.bookId} book={book}></Book>)
                         }
-          
                     </div>
                 </div>
             </section >

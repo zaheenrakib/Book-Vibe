@@ -1,23 +1,35 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useParams , useNavigation} from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
-import { saveJobApplication } from "../Utility/localStorage";
+import { saveBookList } from "../Utility/localStorage";
+import { useEffect, useState } from "react";
 
 
 const BookDetails = () => {
     const books = useLoaderData();
+
+    // const navigation = useNavigation();
+
+    // console.log(navigation)
+
+    // if(navigation.state=='loading'){
+    //     console.log("Heloooooooooooooooooooooo")
+    //     return <><p>Loading</p></>
+    // }
+
     const { bookId } = useParams();
     const idInt = parseInt(bookId);
+    console.log(bookId)
     const book = books.find((book) => book.bookId == bookId);
     console.log(book);
 
     const handleReadBook = () => {
-        saveJobApplication(idInt);
+        saveBookList('ReadBook',idInt);
         toast('You  add Read BookList')
     }
     const handleWishlistBook = () => {
-        saveJobApplication(idInt);
+        saveBookList('WishBook',idInt);
         toast('You  add Wishlist BookList')
     }
 

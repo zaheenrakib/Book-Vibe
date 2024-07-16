@@ -16,29 +16,30 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
-    errorElement: <ErrorPage></ErrorPage>,
+    //errorElement: <ErrorPage></ErrorPage>,
     children:[
       {
         path:'/',
-        element:<Home></Home>
-      },
-      {
-        path: '/listedbooks',
-        element: <ListedBook></ListedBook>,
+        element:<Home></Home>,
         loader: () => fetch('book.json')
       },
       {
-        path: '/pagetoread',
+        path: 'listedbooks',
+        element: <ListedBook></ListedBook>,
+        loader: async () => await fetch('book.json')
+      },
+      {
+        path: 'pagetoread',
         element: <PageToRead></PageToRead>
       },
       {
-        path: '/statistics',
+        path: 'statistics',
         element : <BookDetails></BookDetails>
       },
       {
-        path: '/book/:bookId',
+        path: 'book/:bookId',
         element: <BookDetails></BookDetails>,
-        loader:() => fetch('book.json')
+        loader: async () => await fetch('book.json')
       }
     ]
   },

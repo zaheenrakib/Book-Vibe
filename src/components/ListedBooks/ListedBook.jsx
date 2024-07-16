@@ -3,7 +3,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { useLoaderData } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import { getStoredJobApplication } from '../Utility/localStorage';
+import { getSavedBooks } from '../Utility/localStorage';
 import { CiLocationOn } from "react-icons/ci";
 import { LuUsers2 } from "react-icons/lu";
 import { MdInsertPageBreak } from "react-icons/md";
@@ -16,19 +16,18 @@ const ListedBook = () => {
     const [displayBooks, setDisplayBooks] = useState([]);
 
     // Wishlist Books
-
     const [wishlistBooks , setWishlistBooks] = useState([]);
     const [displayWishlistBooks, setDisplayWishlistBooks] = useState([]);
 
     const handleReadBooksFilter = filter => {
-        if (filter === 'all') {
+        if (filter === 'rating') {
             setDisplayBooks(readBooks);
         }
-        else if (filter === 'popular') {
+        else if (filter === 'numberofpages') {
             const popularBooks = readBooks.filter(book => book.popurarity === "yes");
             setDisplayBooks(popularBooks);
         }
-        else if (filter === 'unpopular') {
+        else if (filter === 'publishedyear') {
             const unpopularBooks = readBooks.filter(book => book.popurarity === "no");
             setDisplayBooks(unpopularBooks);
         }
@@ -36,7 +35,7 @@ const ListedBook = () => {
 
 
     useEffect(() => {
-        const storedBookIds = getStoredJobApplication();
+        const storedBookIds = getSavedBooks('ReadBook');
         if (books.length > 0) {
             const readBooks = [];
             for (const id of storedBookIds) {
@@ -48,11 +47,11 @@ const ListedBook = () => {
             setReadBooks(readBooks);
             setDisplayBooks(readBooks);
         }
-    }, [books])
+    }, [])
 
     //Wishlist Books Use Effect
     useEffect(() => {
-        const storedBookIds = getStoredJobApplication();
+        const storedBookIds =  getSavedBooks('WishBook');
         if (books.length > 0) {
             const wishlistBooks = [];
             for (const id of storedBookIds) {
@@ -64,7 +63,8 @@ const ListedBook = () => {
             setWishlistBooks(wishlistBooks);
             setDisplayWishlistBooks(wishlistBooks);
         }
-    }, [books])
+    }, [])
+
     console.log(wishlistBooks);
 
     const [tabIndex, setTabIndex] = useState(0);
@@ -80,10 +80,10 @@ const ListedBook = () => {
                     <div className='flex left-0'>
                         <div tabIndex={0} role="button" className="btn m-5  bg-green-500 text-lg text-white">Sort By <span> <IoIosArrowDown />  </span> </div>
                     </div>
-                    <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-300 rounded-box w-52">
-                        <li onClick={() => { handleReadBooksFilter('all') }} ><a>All</a></li>
-                        <li onClick={() => { handleReadBooksFilter('popular') }}><a>Popular</a></li>
-                        <li onClick={() => { handleReadBooksFilter('unpopular') }}><a>Non-Popular</a></li>
+                    <ul tabIndex={0} className="dropdown-content flex flex-col justify-center items-center  z-[1] menu p-2 shadow bg-base-300 rounded-box w-52">
+                        <li onClick={() => { handleReadBooksFilter('rating') }} ><a>Rating</a></li>
+                        <li onClick={() => { handleReadBooksFilter('numberofpages') }}><a>Number Of Pages</a></li>
+                        <li onClick={() => { handleReadBooksFilter('publishedyear') }}><a> Published year</a></li>
                     </ul>
                 </div>
             </div> 
