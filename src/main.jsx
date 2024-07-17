@@ -26,7 +26,7 @@ const router = createBrowserRouter([
       {
         path: 'listedbooks',
         element: <ListedBook></ListedBook>,
-        loader: async () => await fetch('book.json')
+        // loader: async () => await fetch('book.json')
       },
       {
         path: 'pagetoread',

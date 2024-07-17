@@ -10,7 +10,16 @@ import { MdInsertPageBreak } from "react-icons/md";
 
 
 const ListedBook = () => {
-    const books = useLoaderData();
+    // const books = useLoaderData();
+
+    const [books, setBooks] = useState([]);
+
+    useEffect(() =>{
+        fetch('/book.json')
+        .then(response => response.json())
+        .then(data => setBooks(data))
+    },[books])
+    console.log(books)
 
     const [readBooks, setReadBooks] = useState([]);
     const [displayBooks, setDisplayBooks] = useState([]);
@@ -47,7 +56,7 @@ const ListedBook = () => {
             setReadBooks(readBooks);
             setDisplayBooks(readBooks);
         }
-    }, [])
+    }, [books])
 
     //Wishlist Books Use Effect
     useEffect(() => {
@@ -63,7 +72,7 @@ const ListedBook = () => {
             setWishlistBooks(wishlistBooks);
             setDisplayWishlistBooks(wishlistBooks);
         }
-    }, [])
+    }, [books])
 
     console.log(wishlistBooks);
 

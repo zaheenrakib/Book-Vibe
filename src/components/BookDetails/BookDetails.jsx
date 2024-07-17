@@ -2,7 +2,7 @@ import { useLoaderData, useParams , useNavigation} from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
-import { saveBookList } from "../Utility/localStorage";
+import { checkReadBooks, saveBookList } from "../Utility/localStorage";
 import { useEffect, useState } from "react";
 
 
@@ -29,8 +29,17 @@ const BookDetails = () => {
         toast('You  add Read BookList')
     }
     const handleWishlistBook = () => {
-        saveBookList('WishBook',idInt);
-        toast('You  add Wishlist BookList')
+         const savedData = checkReadBooks(idInt)
+
+         if(!savedData){
+            saveBookList('WishBook',idInt);
+            toast('You  add Wishlist BookList');
+         }else{
+            toast('ALready Added Read List')
+         }
+        
+
+        
     }
 
     return (

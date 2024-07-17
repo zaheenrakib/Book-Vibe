@@ -6,6 +6,11 @@ const getSavedBooks = (booktype) => {
     return [];
 }
 
+const checkReadBooks = (id) =>{
+    const storedBook = getSavedBooks('ReadBook');
+    const exits = storedBook.find(bookID => bookID === id);
+    return exits;
+}
 
 const saveBookList = (bookType,id) =>{
     const storedBooks = getSavedBooks(bookType);
@@ -16,4 +21,4 @@ const saveBookList = (bookType,id) =>{
     }
 }
 
-export { getSavedBooks, saveBookList }
+export { getSavedBooks, saveBookList,checkReadBooks }

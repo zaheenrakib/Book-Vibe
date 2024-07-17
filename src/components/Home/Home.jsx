@@ -4,15 +4,15 @@ import Book from '../Book/Book';
 import { Link, useLoaderData} from 'react-router-dom';
 
 const Home = () => {
-    const books = useLoaderData();
+    // const books = useLoaderData();
     
-    // const [books, setBooks] = useState([]);
+    const [books, setBooks] = useState([]);
 
-    // useEffect(() =>{
-    //     fetch('book.json')
-    //     .then(response => response.json())
-    //     .then(data => setBooks(data))
-    // },[])
+    useEffect(() =>{
+        fetch('book.json')
+        .then(response => response.json())
+        .then(data => setBooks(data))
+    },[])
 
     return (
         <>
