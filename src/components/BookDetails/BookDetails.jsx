@@ -1,4 +1,4 @@
-import { useLoaderData, useParams , useNavigation} from "react-router-dom";
+import { useLoaderData, useParams, useNavigation } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
@@ -25,21 +25,27 @@ const BookDetails = () => {
     console.log(book);
 
     const handleReadBook = () => {
-        saveBookList('ReadBook',idInt);
-        toast('You  add Read BookList')
+        const saveData = checkReadBooks(idInt);
+        if (!saveData) {
+            saveBookList('ReadBook', idInt);
+            toast('You  add Read BookList')
+        } else {
+            toast.error('Its already been added')
+        }
+
+
     }
     const handleWishlistBook = () => {
-         const savedData = checkReadBooks(idInt)
+        const savedData = checkReadBooks(idInt)
+        if (!savedData) {
+            saveBookList('WishBook', idInt);
+            toast('You add Wishlist BookList');
+        } else {
+            toast.error('ALready Added Read List')
+        }
 
-         if(!savedData){
-            saveBookList('WishBook',idInt);
-            toast('You  add Wishlist BookList');
-         }else{
-            toast('ALready Added Read List')
-         }
-        
 
-        
+
     }
 
     return (
@@ -62,7 +68,7 @@ const BookDetails = () => {
                     } </h2>
                     <hr />
 
-                    <div className="space-y-4"> 
+                    <div className="space-y-4">
                         <h2>Number Of Pages : {book.totalPages} </h2>
                         <h2>Publisher: : {book.publisher} </h2>
                         <h2>Year of Publishing: : {book.yearOfPublishing} </h2>

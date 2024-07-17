@@ -30,6 +30,7 @@ const ListedBook = () => {
 
     const handleReadBooksFilter = filter => {
         if (filter === 'rating') {
+            const bestRating = readBooks.filter(book => book.rating === "yes")
             setDisplayBooks(readBooks);
         }
         else if (filter === 'numberofpages') {
