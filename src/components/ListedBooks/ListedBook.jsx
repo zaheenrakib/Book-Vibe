@@ -18,8 +18,7 @@ const ListedBook = () => {
         fetch('/book.json')
         .then(response => response.json())
         .then(data => setBooks(data))
-    },[books])
-    console.log(books)
+    },[])
 
     const [readBooks, setReadBooks] = useState([]);
     const [displayBooks, setDisplayBooks] = useState([]);
@@ -28,22 +27,7 @@ const ListedBook = () => {
     const [wishlistBooks , setWishlistBooks] = useState([]);
     const [displayWishlistBooks, setDisplayWishlistBooks] = useState([]);
 
-    const handleReadBooksFilter = filter => {
-        if (filter === 'rating') {
-            const bestRating = readBooks.filter(book => book.rating === "yes")
-            setDisplayBooks(readBooks);
-        }
-        else if (filter === 'numberofpages') {
-            const popularBooks = readBooks.filter(book => book.popurarity === "yes");
-            setDisplayBooks(popularBooks);
-        }
-        else if (filter === 'publishedyear') {
-            const unpopularBooks = readBooks.filter(book => book.popurarity === "no");
-            setDisplayBooks(unpopularBooks);
-        }
-    }
-
-
+   // Add Read Books
     useEffect(() => {
         const storedBookIds = getSavedBooks('ReadBook');
         if (books.length > 0) {
@@ -58,6 +42,8 @@ const ListedBook = () => {
             setDisplayBooks(readBooks);
         }
     }, [books])
+
+
 
     //Wishlist Books Use Effect
     useEffect(() => {
@@ -75,7 +61,27 @@ const ListedBook = () => {
         }
     }, [books])
 
-    console.log(wishlistBooks);
+
+    const handleReadBooksFilter = filter => {
+        if (filter === 'rating') {
+            const readBook = [...readBooks]
+            readBook.sort((a, b) => (b.rating - a.rating));
+            setReadBooks(readBook);
+            setDisplayBooks(readBook);
+        }
+        else if (filter === 'pages') {
+            const readBook = [...readBooks];
+            readBook.sort((a,b) => (b.totalPages - a.totalPages));
+            setReadBooks(readBook);
+            setDisplayBooks(readBook);
+        }
+        else if (filter === 'year'){
+            const readBook = [...readBooks];
+            readBook.sort((a,b) => (b.yearOfPublishing - a.yearOfPublishing));
+            setReadBooks(readBook);
+            setDisplayBooks(readBook);
+        }
+    }
 
     const [tabIndex, setTabIndex] = useState(0);
     return (
@@ -92,8 +98,8 @@ const ListedBook = () => {
                     </div>
                     <ul tabIndex={0} className="dropdown-content flex flex-col justify-center items-center  z-[1] menu p-2 shadow bg-base-300 rounded-box w-52">
                         <li onClick={() => { handleReadBooksFilter('rating') }} ><a>Rating</a></li>
-                        <li onClick={() => { handleReadBooksFilter('numberofpages') }}><a>Number Of Pages</a></li>
-                        <li onClick={() => { handleReadBooksFilter('publishedyear') }}><a> Published year</a></li>
+                        <li onClick={() => { handleReadBooksFilter('pages') }}><a>Number Of Pages</a></li>
+                        <li onClick={() => { handleReadBooksFilter('year') }}><a>Published year</a></li>
                     </ul>
                 </div>
             </div> 
@@ -138,7 +144,6 @@ const ListedBook = () => {
                 </TabPanel>
                 <TabPanel>
                     <h1>Wishlist Book Length : {wishlistBooks.length} </h1>
-
                     {
                         displayWishlistBooks.map(book =>
                             <div key={book.bookId} className="card card-side m-5 bg-base-300 shadow-xl">

@@ -41,7 +41,7 @@ const BookDetails = () => {
             saveBookList('WishBook', idInt);
             toast('You add Wishlist BookList');
         } else {
-            toast.error('ALready Added Read List')
+            toast.error('Already Added Read List')
         }
 
 
