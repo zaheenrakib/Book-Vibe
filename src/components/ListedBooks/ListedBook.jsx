@@ -38,6 +38,7 @@ const ListedBook = () => {
                     readBooks.push(book);
                 }
             }
+            
             setReadBooks(readBooks);
             setDisplayBooks(readBooks);
         }
@@ -141,7 +142,7 @@ const ListedBook = () => {
                     {
                         displayBooks.map(book =>
                             <div key={book.bookId} className="card flex flex-col lg:flex-row card-side m-5 bg-base-300 shadow-xl">
-                                <figure><img className='w-96' src={book.image} alt="Movie" /></figure>
+                                <figure><img className='w-96 h-72' src={book.image} alt="Movie" /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title">{book.bookName}</h2>
                                     <p> By : {book.author}</p>
@@ -172,7 +173,7 @@ const ListedBook = () => {
                     {
                         displayWishlistBooks.map(book =>
                             <div key={book.bookId} className="card flex flex-col lg:flex-row card-side m-5 bg-base-300 shadow-xl">
-                                <figure><img className='w-96' src={book.image} alt="Movie" /></figure>
+                                <figure><img className='w-96 h-72' src={book.image} alt="Movie" /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title">{book.bookName}</h2>
                                     <p> By : {book.author}</p>

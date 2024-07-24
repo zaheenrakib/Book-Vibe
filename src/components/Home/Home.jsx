@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import MyImaged from '../images/cover.jpg'
 import Book from '../Book/Book';
 import { Link, useLoaderData} from 'react-router-dom';
+import Footer from '../Footer/Footer';
 
 const Home = () => {
     // const books = useLoaderData();
@@ -38,6 +39,7 @@ const Home = () => {
                     </div>
                 </div>
             </section >
+            {/* <Footer></Footer> */}
         </>
     );
 };

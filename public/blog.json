@@ -1,0 +1,38 @@
+[
+    {
+      "id": 1,
+      "name": "Rose Garden",
+      "photourl": "https://images.pexels.com/photos/694740/pexels-photo-694740.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+      "review": "A beautiful collection of various rose species, perfect for romantic walks.",
+      "writername": "Alice Green"
+    },
+    {
+      "id": 2,
+      "name": "Tulip Paradise",
+      "photourl": "https://images.pexels.com/photos/11947456/pexels-photo-11947456.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+      "review": "An enchanting field of tulips in every color imaginable. A must-visit in spring.",
+      "writername": "Bob Bloom"
+    },
+    {
+      "id": 3,
+      "name": "Sunflower Field",
+      "photourl": "https://images.pexels.com/photos/8123067/pexels-photo-8123067.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+      "review": "Golden sunflowers stretching as far as the eye can see. Great for family photos.",
+      "writername": "Charlie Sunshine"
+    },
+    {
+      "id": 4,
+      "name": "Daisy Patch",
+      "photourl": "https://images.pexels.com/photos/11947456/pexels-photo-11947456.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+      "review": "A charming patch filled with cheerful daisies. Ideal for a peaceful retreat.",
+      "writername": "Daisy Meadows"
+    },
+    {
+      "id": 5,
+      "name": "Lavender Lane",
+      "photourl": "https://images.pexels.com/photos/694740/pexels-photo-694740.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+      "review": "A fragrant lane lined with lavender. Perfect for a calming stroll.",
+      "writername": "Evelyn Lavender"
+    }
+  ]
+  
