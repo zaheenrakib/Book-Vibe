@@ -62,6 +62,10 @@ const ListedBook = () => {
     }, [books])
 
 
+    const [tabIndex, setTabIndex] = useState(0);
+    console.log(tabIndex);
+
+
     const handleReadBooksFilter = filter => {
         if (filter === 'rating') {
             const readBook = [...readBooks]
@@ -69,6 +73,7 @@ const ListedBook = () => {
             setReadBooks(readBook);
             setDisplayBooks(readBook);
         }
+
         else if (filter === 'pages') {
             const readBook = [...readBooks];
             readBook.sort((a,b) => (b.totalPages - a.totalPages));
@@ -83,7 +88,40 @@ const ListedBook = () => {
         }
     }
 
-    const [tabIndex, setTabIndex] = useState(0);
+    const handleWishBooksFilter = filter => {
+        if (filter === 'rating') {
+            const wishBook = [...wishlistBooks]
+            wishBook.sort((a, b) => (b.rating - a.rating));
+            setWishlistBooks(wishBook);
+            setDisplayWishlistBooks(wishBook);
+        }
+
+        else if (filter === 'pages') {
+            const wishBook = [...wishlistBooks]
+            wishBook.sort((a,b) => (b.totalPages - a.totalPages));
+            setWishlistBooks(wishBook);
+            setDisplayWishlistBooks(wishBook);
+        }
+        else if (filter === 'year'){
+            const wishBook = [...wishlistBooks]
+            wishBook.sort((a,b) => (b.yearOfPublishing - a.yearOfPublishing));
+            setWishlistBooks(wishBook);
+            setDisplayWishlistBooks(wishBook);
+        }
+    }
+
+    const handleBooksFilter = filter =>{
+        if(tabIndex === 0){
+            handleReadBooksFilter(filter)
+        }
+        else{
+            handleWishBooksFilter(filter)
+        }
+    }
+
+
+
+    
     return (
         <>
             <h2></h2>
@@ -97,9 +135,9 @@ const ListedBook = () => {
                         <div tabIndex={0} role="button" className="btn m-5  bg-green-500 text-lg text-white">Sort By <span> <IoIosArrowDown />  </span> </div>
                     </div>
                     <ul tabIndex={0} className="dropdown-content flex flex-col justify-center items-center  z-[1] menu p-2 shadow bg-base-300 rounded-box w-52">
-                        <li onClick={() => { handleReadBooksFilter('rating') }} ><a>Rating</a></li>
-                        <li onClick={() => { handleReadBooksFilter('pages') }}><a>Number Of Pages</a></li>
-                        <li onClick={() => { handleReadBooksFilter('year') }}><a>Published year</a></li>
+                        <li onClick={() => { handleBooksFilter('rating') }} ><a>Rating</a></li>
+                        <li onClick={() => { handleBooksFilter('pages') }}><a>Number Of Pages</a></li>
+                        <li onClick={() => { handleBooksFilter('year') }}><a>Published year</a></li>
                     </ul>
                 </div>
             </div> 
@@ -114,12 +152,12 @@ const ListedBook = () => {
                     <h1>Read Book Length : {readBooks.length} </h1>
                     {
                         displayBooks.map(book =>
-                            <div key={book.bookId} className="card card-side m-5 bg-base-300 shadow-xl">
+                            <div key={book.bookId} className="card flex flex-col lg:flex-row card-side m-5 bg-base-300 shadow-xl">
                                 <figure><img className='w-96' src={book.image} alt="Movie" /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title">{book.bookName}</h2>
                                     <p> By : {book.author}</p>
-                                    <div className='flex items-center gap-6'>
+                                    <div className='flex flex-col lg:flex-row items-center lg:gap-6'>
                                         <h2><span className="font-bold text-lg">Tags:</span> {
                                             book.tags.map((tag) => <span className="btn text-green-600" key={tag}> # {tag} </span>)
                                         } </h2>
@@ -127,7 +165,7 @@ const ListedBook = () => {
                                             <CiLocationOn /> Year Of Publishing : {book.yearOfPublishing}
                                         </h2>
                                     </div>
-                                    <div className='flex gap-5'>
+                                    <div className='flex flex-col lg:flex-row gap-2 lg:gap-5'>
                                         <h2 className='flex items-center text-lg gap-2'><LuUsers2 /> Publisher : {book.publisher} </h2>
                                         <h2 className='flex items-center text-lg gap-2'> <MdInsertPageBreak /> Page: {book.totalPages}</h2>
                                     </div>
@@ -146,12 +184,12 @@ const ListedBook = () => {
                     <h1>Wishlist Book Length : {wishlistBooks.length} </h1>
                     {
                         displayWishlistBooks.map(book =>
-                            <div key={book.bookId} className="card card-side m-5 bg-base-300 shadow-xl">
+                            <div key={book.bookId} className="card flex flex-col lg:flex-row card-side m-5 bg-base-300 shadow-xl">
                                 <figure><img className='w-96' src={book.image} alt="Movie" /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title">{book.bookName}</h2>
                                     <p> By : {book.author}</p>
-                                    <div className='flex items-center gap-6'>
+                                    <div className='flex flex-col lg:flex-row items-center lg:gap-6'>
                                         <h2><span className="font-bold text-lg">Tags:</span> {
                                             book.tags.map((tag) => <span className="btn text-green-600" key={tag}> # {tag} </span>)
                                         } </h2>
@@ -159,14 +197,14 @@ const ListedBook = () => {
                                             <CiLocationOn /> Year Of Publishing : {book.yearOfPublishing}
                                         </h2>
                                     </div>
-                                    <div className='flex gap-5'>
+                                    <div className='flex flex-col lg:flex-row gap-2 lg:gap-5'>
                                         <h2 className='flex items-center text-lg gap-2'><LuUsers2 /> Publisher : {book.publisher} </h2>
                                         <h2 className='flex items-center text-lg gap-2'> <MdInsertPageBreak /> Page: {book.totalPages}</h2>
                                     </div>
                                     <div className="card-actions">
                                         <button className="btn rounded-lg text-blue-600 ">Category: {book.category} </button>
                                         <button className="btn rounded-lg text-green-400">Rating : {book.rating}</button>
-                                        <button className="btn rounded-lg btn-success">View Details</button>
+                                        <button  className="btn rounded-lg btn-success">View Details</button>
                                     </div>
                                 </div>
                             </div>

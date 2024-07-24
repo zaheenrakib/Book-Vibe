@@ -16,11 +16,11 @@ const Home = () => {
 
     return (
         <>
-            <div className="hero px-20 py-10  rounded-lg bg-base-200">
+            <div className="hero lg:px-20 lg:py-10  rounded-lg bg-base-200">
                 <div className="lg:flex items-center flex-col lg:flex-row-reverse">
                     <img src={MyImaged} className="max-w-sm rounded-lg shadow-2xl" />
                     <div>
-                        <h1 className="text-6xl w-3/4 font-bold">Books to freshen up your bookshelf</h1>
+                        <h1 className="lg:text-6xl text-2xl lg:w-3/4 font-bold">Books to freshen up your bookshelf</h1>
                         <Link to='/listedbooks'><button className="btn mt-12 text-white text-lg btn-success">View The List</button></Link>
                     </div>
                 </div>

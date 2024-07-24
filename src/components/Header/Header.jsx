@@ -1,11 +1,11 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link,} from "react-router-dom";
 
 const Header = () => {
     const links = <>
         <Link to='/'><li className='btn btn-success btn-outline px-6 rounded-tl-3xl rounded-br-3xl'>Home</li></Link>
         <Link to='/listedbooks'><li className='btn btn-success btn-outline px-6 rounded-tl-3xl rounded-br-3xl'>Listed Books</li></Link>
         <Link to='/pagetoread'><li className='btn btn-success btn-outline px-6 rounded-tl-3xl rounded-br-3xl'>Page To Readed</li></Link>
-        <Link to='/statistics'><li className='btn btn-success btn-outline px-6 rounded-tl-3xl rounded-br-3xl'>Statistics</li></Link>
+        <Link to='/bookseries'><li className='btn btn-success btn-outline px-6 rounded-tl-3xl rounded-br-3xl'>Book Series</li></Link>
         <Link to='/blogs'><li className='btn btn-success btn-outline px-6 rounded-tl-3xl rounded-br-3xl'>Blogs</li></Link>
     </>
     return (

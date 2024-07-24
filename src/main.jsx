@@ -11,6 +11,8 @@ import Home from './components/Home/Home';
 import ListedBook from './components/ListedBooks/ListedBook';
 import PageToRead from './components/PageToRead/PageToRead';
 import BookDetails from './components/BookDetails/BookDetails';
+import BookSeries from './components/BookSeries/BookSeries';
+import Blogs from './components/Blogs/Blogs';
 
 const router = createBrowserRouter([ 
   {
@@ -33,8 +35,12 @@ const router = createBrowserRouter([
         element: <PageToRead></PageToRead>
       },
       {
-        path: 'statistics',
-        element : <BookDetails></BookDetails>
+        path: 'bookseries',
+        element : <BookSeries></BookSeries>
+      },
+      {
+        path: 'blogs',
+        element: <Blogs></Blogs>
       },
       {
         path: 'book/:bookId',
