@@ -7,6 +7,7 @@ import { getSavedBooks } from '../Utility/localStorage';
 import { CiLocationOn } from "react-icons/ci";
 import { LuUsers2 } from "react-icons/lu";
 import { MdInsertPageBreak } from "react-icons/md";
+import Footer from '../Footer/Footer';
 
 
 const ListedBook = () => {
@@ -38,7 +39,7 @@ const ListedBook = () => {
                     readBooks.push(book);
                 }
             }
-            
+
             setReadBooks(readBooks);
             setDisplayBooks(readBooks);
         }
@@ -200,6 +201,7 @@ const ListedBook = () => {
                     }
                 </TabPanel>
             </Tabs>
+            <Footer></Footer>
         </>
     );
 };

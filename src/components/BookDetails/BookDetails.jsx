@@ -4,6 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { checkExist, saveBookList } from "../Utility/localStorage";
 import { useEffect, useState } from "react";
+import Footer from "../Footer/Footer";
 
 
 const BookDetails = () => {
@@ -81,7 +82,7 @@ const BookDetails = () => {
                 </div>
                 <ToastContainer></ToastContainer>
             </div>
-
+            <Footer></Footer>
         </>
     );
 };

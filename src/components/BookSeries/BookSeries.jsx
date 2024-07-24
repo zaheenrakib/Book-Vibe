@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Footer from '../Footer/Footer';
 
 const BookSeries = () => {
 
@@ -57,7 +58,7 @@ const BookSeries = () => {
                 }
 
             </div>
-
+            <Footer></Footer>
         </>
     );
 };

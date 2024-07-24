@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Footer from '../Footer/Footer';
 
 const Blogs = () => {
 
@@ -34,6 +35,7 @@ const Blogs = () => {
                     ))
                 }
             </div>
+                <Footer></Footer>
         </>
     );
 };

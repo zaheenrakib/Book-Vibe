@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid } from 'recharts';
+import Footer from '../Footer/Footer';
 
 const PageToRead = () => {
   const [books, setBooks] = useState([]);
@@ -74,6 +75,7 @@ const PageToRead = () => {
           </Bar>
         </BarChart>
       </div>
+      <Footer></Footer>
     </>
   );
 };
