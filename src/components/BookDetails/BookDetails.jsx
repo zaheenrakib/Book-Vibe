@@ -2,7 +2,7 @@ import { useLoaderData, useParams, useNavigation } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
-import { checkReadBooks, saveBookList } from "../Utility/localStorage";
+import { checkExist, saveBookList } from "../Utility/localStorage";
 import { useEffect, useState } from "react";
 
 
@@ -13,24 +13,32 @@ const BookDetails = () => {
     const book = books.find((book) => book.bookId == bookId);
 
     const handleReadBook = () => {
-        const saveData = checkReadBooks(idInt);
+        const saveData = checkExist('ReadBook', idInt);
         if (!saveData) {
             saveBookList('ReadBook', idInt);
             toast('You  add Read BookList')
         } else {
-            toast.error('Its already been added')
+            toast.error('Its already been added ReadBook')
         }
 
 
     }
     const handleWishlistBook = () => {
-        const savedData = checkReadBooks(idInt)
-        if (!savedData) {
-            saveBookList('WishBook', idInt);
-            toast('You add Wishlist BookList');
-        } else {
-            toast.error('Already Added Read List')
+        const savedData = checkExist('WishBook', idInt)
+        const checkReadExist = checkExist('ReadBook', idInt);
+        if (checkReadExist) {
+            toast.error('Already Added Read List');
         }
+        else {
+            if (!savedData) {
+                saveBookList('WishBook', idInt);
+                toast('You add Wishlist BookList');
+            } else {
+                toast.error('Its already been added WishBook')
+            }
+        }
+
+
 
 
 

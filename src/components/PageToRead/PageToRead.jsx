@@ -1,4 +1,3 @@
-// import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid } from 'recharts';
 
@@ -6,7 +5,7 @@ const PageToRead = () => {
   const [books, setBooks] = useState([]);
   const [readBooksId, setReadBooksId] = useState([]);
   const idInt = readBooksId.map((item) => parseInt(item));
-  console.log(idInt)
+  // console.log(idInt)
 
   // Data From APi F
   useEffect(() => {
@@ -14,7 +13,7 @@ const PageToRead = () => {
       .then(response => response.json())
       .then(data => setBooks(data))
   }, []);
-  console.log(books);
+  // console.log(books);
 
   //Data From Local Stortage
   useEffect(() => {
@@ -23,10 +22,10 @@ const PageToRead = () => {
       setReadBooksId(JSON.parse(localDatas));
     }
   }, []);
-  console.log(readBooksId);
+  // console.log(readBooksId);
 
   const matchedBooks = books.filter((book) => idInt.includes(book.bookId))
-  console.log(matchedBooks)
+  // console.log(matchedBooks)
 
   const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
   const TriangleBar = (props) => {
@@ -48,61 +47,14 @@ const PageToRead = () => {
       amt: 2100, // You can modify this value as needed
     }))
   
-  console.log(data)
-
-
-
-  // const datas = [
-  //   {
-  //     name: 'Page A',
-  //     uv: 4000,
-  //     pv: 2400,
-  //     amt: 2400,
-  //   },
-  //   {
-  //     name: 'Page B',
-  //     uv: 3000,
-  //     pv: 1398,
-  //     amt: 2210,
-  //   },
-  //   {
-  //     name: 'Page C',
-  //     uv: 2000,
-  //     pv: 9800,
-  //     amt: 2290,
-  //   },
-  //   {
-  //     name: 'Page D',
-  //     uv: 2780,
-  //     pv: 3908,
-  //     amt: 2000,
-  //   },
-  //   {
-  //     name: 'Page E',
-  //     uv: 1890,
-  //     pv: 4800,
-  //     amt: 2181,
-  //   },
-  //   {
-  //     name: 'Page F',
-  //     uv: 2390,
-  //     pv: 3800,
-  //     amt: 2500,
-  //   },
-  //   {
-  //     name: 'Page G',
-  //     uv: 3490,
-  //     pv: 4300,
-  //     amt: 2100,
-  //   },
-  // ];
+  // console.log(data)
 
   return (
     <>
       <div className='flex items-center justify-center'>
         <BarChart
-          width={1000}
-          height={500}
+          width={1400}
+          height={600}
           data={data}
           margin={{
             top: 20,
@@ -125,21 +77,5 @@ const PageToRead = () => {
     </>
   );
 };
-
-// PageToRead.prototype = {
-//   colors: PropTypes.arrayOf(PropTypes.string).isRequired,
-//   fill: PropTypes.string.isRequired,
-//   x: PropTypes.number.isRequired,
-//   y: PropTypes.number.isRequired,
-//   width: PropTypes.number.isRequired,
-//   height: PropTypes.number.isRequired,
-//   data: PropTypes.arrayOf(PropTypes.shape({
-//     name: PropTypes.string.isRequired,
-//     uv: PropTypes.number.isRequired,
-//     pv: PropTypes.number.isRequired,
-//     amt: PropTypes.number.isRequired,
-
-//   })).isRequired,
-// }
 
 export default PageToRead;
