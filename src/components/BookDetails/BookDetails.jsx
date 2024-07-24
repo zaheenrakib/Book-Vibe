@@ -8,21 +8,9 @@ import { useEffect, useState } from "react";
 
 const BookDetails = () => {
     const books = useLoaderData();
-
-    // const navigation = useNavigation();
-
-    // console.log(navigation)
-
-    // if(navigation.state=='loading'){
-    //     console.log("Heloooooooooooooooooooooo")
-    //     return <><p>Loading</p></>
-    // }
-
     const { bookId } = useParams();
     const idInt = parseInt(bookId);
-    console.log(bookId)
     const book = books.find((book) => book.bookId == bookId);
-    console.log(book);
 
     const handleReadBook = () => {
         const saveData = checkReadBooks(idInt);

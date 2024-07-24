@@ -14,20 +14,20 @@ const ListedBook = () => {
 
     const [books, setBooks] = useState([]);
 
-    useEffect(() =>{
+    useEffect(() => {
         fetch('/book.json')
-        .then(response => response.json())
-        .then(data => setBooks(data))
-    },[])
+            .then(response => response.json())
+            .then(data => setBooks(data))
+    }, [])
 
     const [readBooks, setReadBooks] = useState([]);
     const [displayBooks, setDisplayBooks] = useState([]);
 
     // Wishlist Books
-    const [wishlistBooks , setWishlistBooks] = useState([]);
+    const [wishlistBooks, setWishlistBooks] = useState([]);
     const [displayWishlistBooks, setDisplayWishlistBooks] = useState([]);
 
-   // Add Read Books
+    // Add Read Books
     useEffect(() => {
         const storedBookIds = getSavedBooks('ReadBook');
         if (books.length > 0) {
@@ -43,11 +43,9 @@ const ListedBook = () => {
         }
     }, [books])
 
-
-
     //Wishlist Books Use Effect
     useEffect(() => {
-        const storedBookIds =  getSavedBooks('WishBook');
+        const storedBookIds = getSavedBooks('WishBook');
         if (books.length > 0) {
             const wishlistBooks = [];
             for (const id of storedBookIds) {
@@ -63,7 +61,6 @@ const ListedBook = () => {
 
 
     const [tabIndex, setTabIndex] = useState(0);
-    console.log(tabIndex);
 
 
     const handleReadBooksFilter = filter => {
@@ -76,13 +73,13 @@ const ListedBook = () => {
 
         else if (filter === 'pages') {
             const readBook = [...readBooks];
-            readBook.sort((a,b) => (b.totalPages - a.totalPages));
+            readBook.sort((a, b) => (b.totalPages - a.totalPages));
             setReadBooks(readBook);
             setDisplayBooks(readBook);
         }
-        else if (filter === 'year'){
+        else if (filter === 'year') {
             const readBook = [...readBooks];
-            readBook.sort((a,b) => (b.yearOfPublishing - a.yearOfPublishing));
+            readBook.sort((a, b) => (b.yearOfPublishing - a.yearOfPublishing));
             setReadBooks(readBook);
             setDisplayBooks(readBook);
         }
@@ -98,37 +95,30 @@ const ListedBook = () => {
 
         else if (filter === 'pages') {
             const wishBook = [...wishlistBooks]
-            wishBook.sort((a,b) => (b.totalPages - a.totalPages));
+            wishBook.sort((a, b) => (b.totalPages - a.totalPages));
             setWishlistBooks(wishBook);
             setDisplayWishlistBooks(wishBook);
         }
-        else if (filter === 'year'){
+        else if (filter === 'year') {
             const wishBook = [...wishlistBooks]
-            wishBook.sort((a,b) => (b.yearOfPublishing - a.yearOfPublishing));
+            wishBook.sort((a, b) => (b.yearOfPublishing - a.yearOfPublishing));
             setWishlistBooks(wishBook);
             setDisplayWishlistBooks(wishBook);
         }
     }
-
-    const handleBooksFilter = filter =>{
-        if(tabIndex === 0){
+    const handleBooksFilter = filter => {
+        if (tabIndex === 0) {
             handleReadBooksFilter(filter)
         }
-        else{
+        else {
             handleWishBooksFilter(filter)
         }
     }
-
-
-
-    
     return (
         <>
-            <h2></h2>
             <div className="bg-slate-300 rounded-lg">
                 <h1 className="p-8 text-center text-2xl font-bold">Book Vibe</h1>
             </div>
-
             <div className='flex justify-center'>
                 <div className="dropdown ">
                     <div className='flex left-0'>
@@ -140,15 +130,13 @@ const ListedBook = () => {
                         <li onClick={() => { handleBooksFilter('year') }}><a>Published year</a></li>
                     </ul>
                 </div>
-            </div> 
-
+            </div>
             <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
                 <TabList>
                     <Tab>Read Books</Tab>
                     <Tab>Wishlist Books</Tab>
                 </TabList>
                 <TabPanel>
-
                     <h1>Read Book Length : {readBooks.length} </h1>
                     {
                         displayBooks.map(book =>
@@ -178,7 +166,6 @@ const ListedBook = () => {
                             </div>
                         )
                     }
-
                 </TabPanel>
                 <TabPanel>
                     <h1>Wishlist Book Length : {wishlistBooks.length} </h1>
@@ -204,13 +191,12 @@ const ListedBook = () => {
                                     <div className="card-actions">
                                         <button className="btn rounded-lg text-blue-600 ">Category: {book.category} </button>
                                         <button className="btn rounded-lg text-green-400">Rating : {book.rating}</button>
-                                        <button  className="btn rounded-lg btn-success">View Details</button>
+                                        <button className="btn rounded-lg btn-success">View Details</button>
                                     </div>
                                 </div>
                             </div>
                         )
                     }
-
                 </TabPanel>
             </Tabs>
         </>
